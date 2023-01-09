@@ -1,7 +1,8 @@
+import PersonalInfoForm from './PersonalInfoForm'
 function MainFormContent() {
     return (
         <div>
-            main content
+            <PersonalInfoForm />
         </div>
     )
 };
