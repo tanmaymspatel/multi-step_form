@@ -1,0 +1,33 @@
+input:focus-visible {
+    outline: transparent auto 0px;
+}
+
+.input-field {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+        width: auto;
+        margin: auto;
+    }
+
+    .error-text {
+        left: 0;
+        bottom: -1.5rem;
+    }
+
+    #ipAddress {
+        width: 400px;
+        border-radius: $border-radius;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 400px;
+        }
+
+    }
+}
