@@ -1,0 +1,12 @@
+#sidebar {
+    flex: 0 0 $sidebar-width;
+
+    .sidebar-bg {
+        background-image: url('../../images/bg-sidebar-desktop.svg');
+    }
+
+    .step {
+        flex: 0 0 40px;
+        color: $light;
+    }
+}

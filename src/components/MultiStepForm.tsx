@@ -3,15 +3,15 @@ import Sidebar from "./Sidebar"
 
 function multiStepForm() {
     return (
-        <div className="d-flex p-2 rounded-4">
-            <div>
+        <div className="d-flex p-3 rounded-4 w-75 bg-light">
+            <aside id="sidebar">
                 <Sidebar />
-            </div>
-            <div className="flex-grow-1">
+            </aside>
+            <div className="flex-grow-1 px-5 py-3">
                 <MainFormContent />
             </div>
         </div>
     )
-}
+};
 
-export default multiStepForm
+export default multiStepForm;

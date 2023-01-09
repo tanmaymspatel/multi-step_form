@@ -4,6 +4,6 @@ function MainFormContent() {
             main content
         </div>
     )
-}
+};
 
-export default MainFormContent
+export default MainFormContent;
