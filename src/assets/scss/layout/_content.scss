@@ -20,3 +20,18 @@
         padding-top: 6rem;
     }
 }
+
+//plan subscription form
+.plan-icon-image {
+    height: 30px;
+    width: 30px;
+}
+
+.radio:checked {
+    &~label {
+        .card {
+            border-color: $primary;
+            background-color: $magnolia;
+        }
+    }
+}

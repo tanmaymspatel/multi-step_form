@@ -4,25 +4,24 @@ import * as Yup from 'yup';
 interface IPersonalInfo {
     name: string,
     emailId: string,
-    phoneNumber: number | null
+    phoneNumber: string
 }
 
 function PersonalInfo() {
     const initialPersonalInfo: IPersonalInfo = {
         name: "",
         emailId: "",
-        phoneNumber: null
+        phoneNumber: ""
     }
 
-    const validationSchema = Yup.object().shape({
+    const PersonalInfoValidationSchema = Yup.object().shape({
         name: Yup.string().required("This field is required"),
         emailId: Yup.string().email('Enter correct format').required("This field is required"),
-        phoneNumber: Yup.number().required("This field is required").typeError('Enter correct format')
+        phoneNumber: Yup.string().required("This field is required")
     });
 
     const onSubmit = () => {
         console.log("hello");
-
     }
 
     return (
@@ -33,35 +32,41 @@ function PersonalInfo() {
                 <Formik
                     initialValues={initialPersonalInfo}
                     onSubmit={onSubmit}
-                    validationSchema={validationSchema}
+                    validationSchema={PersonalInfoValidationSchema}
                     enableReinitialize
                 >
-                    <Form>
-                        <div className="my-3"> {/* first name */}
-                            <label className='text-primary mb-2' htmlFor="name">Name</label>
-                            <Field type="text" className="form-control" id="name" name='name' placeholder="e.g. Stephen King" />
-                            <ErrorMessage name='name' >
-                                {errorMsg => <small className="text-danger">{errorMsg}</small>}
-                            </ ErrorMessage>
-                        </div>
-                        <div className="my-3">{/* email */}
-                            <label className='text-primary mb-2' htmlFor="emailId">Email Address </label>
-                            <Field type="email" className="form-control" id="emailId" name='emailId' placeholder="e.g. stephenking@llorem.com" />
-                            <ErrorMessage name='emailId'>
-                                {errorMsg => <small className="text-danger">{errorMsg}</small>}
-                            </ErrorMessage>
-                        </div>
-                        <div className="my-3">{/* last name */}
-                            <label className='text-primary mb-2' htmlFor="phoneNumber">Phone Number </label>
-                            <Field type="text" className="form-control" id="phoneNumber" name='phoneNumber' placeholder="e.g. +1 234 567 890" />
-                            <ErrorMessage name='phoneNumber' >
-                                {errorMsg => <small className="text-danger">{errorMsg}</small>}
-                            </ErrorMessage>
-                        </div>
-                        <div className="form-btn text-end">
-                            <button className="btn btn-primary">Next Step</button>
-                        </div>
-                    </Form>
+                    {
+                        ({ errors, touched, values }: any) => {
+                            return (
+                                <Form>
+                                    <div className="my-3 position-relative">
+                                        <label className='text-primary mb-2' htmlFor="name">Name</label>
+                                        <Field type="text" className={errors.name && touched.name ? "form-control border border-danger" : "form-control"} id="name" name='name' placeholder="e.g. Stephen King" value={values.name || ""} />
+                                        <ErrorMessage name='name' >
+                                            {errorMsg => <small className="text-danger fw-bold position-absolute top-0 end-0">{errorMsg}</small>}
+                                        </ ErrorMessage>
+                                    </div>
+                                    <div className="my-3 position-relative">
+                                        <label className='text-primary mb-2' htmlFor="emailId">Email Address </label>
+                                        <Field type="email" className={errors.emailId && touched.emailId ? "form-control border border-danger" : "form-control"} id="emailId" name='emailId' placeholder="e.g. stephenking@llorem.com" value={values.emailId || ""} />
+                                        <ErrorMessage name='emailId'>
+                                            {errorMsg => <small className="text-danger fw-bold position-absolute top-0 end-0">{errorMsg}</small>}
+                                        </ErrorMessage>
+                                    </div>
+                                    <div className="my-3 position-relative">
+                                        <label className='text-primary mb-2' htmlFor="phoneNumber">Phone Number </label>
+                                        <Field type="text" className={errors.phoneNumber && touched.phoneNumber ? "form-control border border-danger" : "form-control"} id="phoneNumber" name='phoneNumber' placeholder="e.g. +1 234 567 890" value={values.phoneNumber || ""} />
+                                        <ErrorMessage name='phoneNumber' >
+                                            {errorMsg => <small className="text-danger fw-bold position-absolute top-0 end-0">{errorMsg}</small>}
+                                        </ErrorMessage>
+                                    </div>
+                                    <div className="form-btn text-end">
+                                        <button type="submit" className="btn btn-primary">Next Step</button>
+                                    </div>
+                                </Form>
+                            )
+                        }
+                    }
                 </Formik>
             </div>
         </div>

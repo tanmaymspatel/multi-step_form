@@ -1,8 +1,12 @@
+import AddOns from './AddOns';
 import PersonalInfoForm from './PersonalInfoForm'
+import PlanForm from './PlanForm';
 function MainFormContent() {
     return (
         <div>
-            <PersonalInfoForm />
+            {/* <PersonalInfoForm /> */}
+            {/* <PlanForm /> */}
+            <AddOns />
         </div>
     )
 };
