@@ -6,8 +6,21 @@ $font-size-base-sm: 0.875rem;
 // general
 $transition-timing : 0.4s;
 
-// card
-$card-border-radius: 22px;
-
 // sidebar
-$sidebar-width : 200px;
+$sidebar-width : 300px;
+
+// form control
+$input-padding-y: 0.75rem;
+$input-placeholder-color: $cool-grey;
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: none;
+$form-switch-color: $light;
+$form-switch-focus-color: $light;
+$form-switch-checked-color: $light;
+$form-check-input-active-filter: brightness(100%);
+$form-check-input-bg: $primary;
+$form-check-input-focus-box-shadow: none;
+
+// btn
+$btn-padding-x: 1.5rem;
+$btn-padding-y: 0.75rem;

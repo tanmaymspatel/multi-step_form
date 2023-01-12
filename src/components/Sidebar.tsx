@@ -1,6 +1,6 @@
 function Sidebar() {
     return (
-        <div className="sidebar-bg p-4 rounded-3">
+        <div className="sidebar-bg h-100 p-4 rounded-3">
             <div className="d-flex flex-column">
                 <div className="d-flex align-items-center justify-content-between my-2">
                     <div className="step">
