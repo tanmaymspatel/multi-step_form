@@ -7,7 +7,22 @@
     }
 
     .step {
-        flex: 0 0 40px;
+        flex: 0 0 50px;
         color: $light;
+
+        .step-circle {
+            height: 30px;
+            width: 30px;
+
+            &.active {
+                background-color: $success;
+                color: $primary;
+            }
+        }
+
+    }
+
+    .step-name {
+        letter-spacing: 1px;
     }
 }
