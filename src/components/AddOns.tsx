@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function AddOns() {
 
-    const [isYearlySubscription] = useState(false)
+    const [isYearlySubscription] = useState(false);
     const initialAddOnsValues = {
         addons: []
     }

@@ -1,12 +1,16 @@
 import AddOns from './AddOns';
+import FinishingUp from './FinishingUp';
 import PersonalInfoForm from './PersonalInfoForm'
 import PlanForm from './PlanForm';
+import ThankYou from './ThankYou';
 function MainFormContent() {
     return (
-        <div>
+        <div className='h-100'>
             {/* <PersonalInfoForm /> */}
             {/* <PlanForm /> */}
-            <AddOns />
+            {/* <AddOns /> */}
+            {/* <FinishingUp /> */}
+            <ThankYou />
         </div>
     )
 };
