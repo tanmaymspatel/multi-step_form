@@ -8,9 +8,9 @@ function MainFormContent() {
         <div className='h-100'>
             {/* <PersonalInfoForm /> */}
             {/* <PlanForm /> */}
-            {/* <AddOns /> */}
+            <AddOns />
             {/* <FinishingUp /> */}
-            <ThankYou />
+            {/* <ThankYou /> */}
         </div>
     )
 };
