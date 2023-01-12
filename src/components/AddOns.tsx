@@ -1,9 +1,11 @@
 import { Formik, Form, Field } from "formik";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { MultiStepFormContext } from "../contexts/multiStepFormContext";
 
 import { addonsFormData } from './data'
 
 function AddOns() {
+    const { next, prev } = useContext<any>(MultiStepFormContext);
 
     const [isChecked, setIsChecked] = useState(false);
 
@@ -17,6 +19,7 @@ function AddOns() {
     }
     const onSubmit = (values: any) => {
         console.log(values);
+        next();
     }
 
     return (
@@ -94,7 +97,7 @@ function AddOns() {
                                     )
                                 })}
                                 <div className="d-flex align-items-center justify-content-between pt-5 mt-3">
-                                    <button type="button" className="btn bg-transparent border-0">Go Back</button>
+                                    <button type="button" className="btn bg-transparent border-0" onClick={() => { prev(); }}>Go Back</button>
                                     <button type="submit" className="btn btn-primary">Next Step</button>
                                 </div>
                             </Form>

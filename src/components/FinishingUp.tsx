@@ -1,4 +1,8 @@
+import { useContext } from "react"
+import { MultiStepFormContext } from "../contexts/multiStepFormContext"
+
 function FinishingUp() {
+    const { next, prev } = useContext<any>(MultiStepFormContext);
     return (
         <div>
             <h2 className="form-title text-primary fw-bold"> Finishing up</h2>
@@ -29,8 +33,8 @@ function FinishingUp() {
                 </div>
             </div>
             <div className="d-flex align-items-center justify-content-between pt-5 mt-3">
-                <button type="button" className="btn bg-transparent border-0">Go Back</button>
-                <button type="submit" className="btn btn-primary">Next Step</button>
+                <button type="button" className="btn bg-transparent border-0" onClick={() => prev()}>Go Back</button>
+                <button type="button" className="btn btn-primary" onClick={() => next()}>Next Step</button>
             </div>
         </div>
     )

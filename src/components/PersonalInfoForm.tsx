@@ -1,18 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useContext } from "react";
 import * as Yup from 'yup';
-
-interface IPersonalInfo {
-    name: string,
-    emailId: string,
-    phoneNumber: string
-}
+import { MultiStepFormContext } from "../contexts/multiStepFormContext";
 
 function PersonalInfo() {
-    const initialPersonalInfo: IPersonalInfo = {
-        name: "",
-        emailId: "",
-        phoneNumber: ""
-    }
+
+    const { next, personalInfo, setPersonalInfo } = useContext<any>(MultiStepFormContext);
+
 
     const PersonalInfoValidationSchema = Yup.object().shape({
         name: Yup.string().required("This field is required"),
@@ -20,8 +14,9 @@ function PersonalInfo() {
         phoneNumber: Yup.string().required("This field is required")
     });
 
-    const onSubmit = () => {
-        console.log("hello");
+    const onSubmit = (values: any) => {
+        setPersonalInfo(values);
+        next();
     }
 
     return (
@@ -30,7 +25,7 @@ function PersonalInfo() {
             <p className="form-subtitle text-cool-grey">Please provide your name, email address, and phone number.</p>
             <div className="pt-3">
                 <Formik
-                    initialValues={initialPersonalInfo}
+                    initialValues={personalInfo}
                     onSubmit={onSubmit}
                     validationSchema={PersonalInfoValidationSchema}
                     enableReinitialize

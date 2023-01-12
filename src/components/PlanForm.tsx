@@ -2,16 +2,18 @@ import { Formik, Form, Field } from "formik";
 import arcade from "../assets/images/icon-arcade.svg"
 import advanced from "../assets/images/icon-advanced.svg"
 import pro from "../assets/images/icon-pro.svg"
+import { useContext } from "react";
+import { MultiStepFormContext } from "../contexts/multiStepFormContext";
+import { initialPlanFormDetails } from "./initialValues";
 
 function PlanForm() {
+    const { next, prev, planInfo, setPlanInfo } = useContext<any>(MultiStepFormContext);
 
-    const initialPlanFormDetails = {
-        plans: "",
-        isYearly: false
-    }
 
-    const onSubmit = () => {
-        console.log("hello");
+    const onSubmit = (values: any) => {
+        setPlanInfo(values);
+        next();
+
     }
 
     return (
@@ -20,7 +22,7 @@ function PlanForm() {
             <p className="form-subtitle text-cool-grey">You have the option of monthly or yearly billing.</p>
             <div className="pt-3">
                 <Formik
-                    initialValues={initialPlanFormDetails}
+                    initialValues={planInfo}
                     onSubmit={onSubmit}
                     enableReinitialize
                 >
@@ -84,7 +86,7 @@ function PlanForm() {
                                     </div>
 
                                     <div className="d-flex align-items-center justify-content-between pt-5 mt-5">
-                                        <button type="button" className="btn bg-transparent">Go Back</button>
+                                        <button type="button" className="btn bg-transparent" onClick={() => { prev() }}>Go Back</button>
                                         <button type="submit" className="btn btn-primary">Next Step</button>
                                     </div>
                                 </Form>
