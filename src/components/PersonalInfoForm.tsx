@@ -1,18 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useContext } from "react";
 import * as Yup from 'yup';
-
-interface IPersonalInfo {
-    name: string,
-    emailId: string,
-    phoneNumber: string
-}
+import { MultiStepFormContext } from "../contexts/multiStepFormContext";
 
 function PersonalInfo() {
-    const initialPersonalInfo: IPersonalInfo = {
-        name: "",
-        emailId: "",
-        phoneNumber: ""
-    }
+
+    const { next, personalInfo, setPersonalInfo } = useContext<any>(MultiStepFormContext);
+
 
     const PersonalInfoValidationSchema = Yup.object().shape({
         name: Yup.string().required("This field is required"),
@@ -20,8 +14,9 @@ function PersonalInfo() {
         phoneNumber: Yup.string().required("This field is required")
     });
 
-    const onSubmit = () => {
-        console.log("hello");
+    const onSubmit = (values: any) => {
+        setPersonalInfo(values);
+        next();
     }
 
     return (
@@ -30,7 +25,7 @@ function PersonalInfo() {
             <p className="form-subtitle text-cool-grey">Please provide your name, email address, and phone number.</p>
             <div className="pt-3">
                 <Formik
-                    initialValues={initialPersonalInfo}
+                    initialValues={personalInfo}
                     onSubmit={onSubmit}
                     validationSchema={PersonalInfoValidationSchema}
                     enableReinitialize
@@ -41,21 +36,21 @@ function PersonalInfo() {
                                 <Form>
                                     <div className="my-3 position-relative">
                                         <label className='text-primary mb-2' htmlFor="name">Name</label>
-                                        <Field type="text" className={errors.name && touched.name ? "form-control border border-danger" : "form-control"} id="name" name='name' placeholder="e.g. Stephen King" value={values.name || ""} />
+                                        <Field type="text" className={`${errors.name && touched.name ? " border border-danger" : null} form-control input-row cursor-pointer`} id="name" name='name' placeholder="e.g. Stephen King" value={values.name || ""} />
                                         <ErrorMessage name='name' >
                                             {errorMsg => <small className="text-danger fw-bold position-absolute top-0 end-0">{errorMsg}</small>}
                                         </ ErrorMessage>
                                     </div>
                                     <div className="my-3 position-relative">
                                         <label className='text-primary mb-2' htmlFor="emailId">Email Address </label>
-                                        <Field type="email" className={errors.emailId && touched.emailId ? "form-control border border-danger" : "form-control"} id="emailId" name='emailId' placeholder="e.g. stephenking@llorem.com" value={values.emailId || ""} />
+                                        <Field type="email" className={`${errors.emailId && touched.emailId ? " border border-danger" : null} form-control input-row cursor-pointer`} id="emailId" name='emailId' placeholder="e.g. stephenking@llorem.com" value={values.emailId || ""} />
                                         <ErrorMessage name='emailId'>
                                             {errorMsg => <small className="text-danger fw-bold position-absolute top-0 end-0">{errorMsg}</small>}
                                         </ErrorMessage>
                                     </div>
                                     <div className="my-3 position-relative">
                                         <label className='text-primary mb-2' htmlFor="phoneNumber">Phone Number </label>
-                                        <Field type="text" className={errors.phoneNumber && touched.phoneNumber ? "form-control border border-danger" : "form-control"} id="phoneNumber" name='phoneNumber' placeholder="e.g. +1 234 567 890" value={values.phoneNumber || ""} />
+                                        <Field type="text" className={`${errors.phoneNumber && touched.phoneNumber ? " border border-danger" : null} form-control input-row cursor-pointer`} id="phoneNumber" name='phoneNumber' placeholder="e.g. +1 234 567 890" value={values.phoneNumber || ""} />
                                         <ErrorMessage name='phoneNumber' >
                                             {errorMsg => <small className="text-danger fw-bold position-absolute top-0 end-0">{errorMsg}</small>}
                                         </ErrorMessage>

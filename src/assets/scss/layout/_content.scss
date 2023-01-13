@@ -35,3 +35,22 @@
         }
     }
 }
+
+
+// subscription plan
+.change-plan {
+    color: $cool-grey;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+// addons checkbox
+.check-row {
+    border: 1px solid $light-grey;
+
+    &:hover {
+        border-color: $secondary;
+    }
+}

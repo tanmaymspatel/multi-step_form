@@ -1,4 +1,6 @@
-.btn-ip-submit {
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+.btn-primary {
+    &:hover {
+        background-color: rgba($primary, 0.8);
+        border-color: transparent;
+    }
 }

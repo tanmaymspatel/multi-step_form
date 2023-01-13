@@ -1,17 +1,18 @@
 import { Formik, Form, Field } from "formik";
+import { useContext } from "react";
+
 import arcade from "../assets/images/icon-arcade.svg"
 import advanced from "../assets/images/icon-advanced.svg"
 import pro from "../assets/images/icon-pro.svg"
+import { MultiStepFormContext } from "../contexts/multiStepFormContext";
 
 function PlanForm() {
+    const { next, prev, planInfo, setPlanInfo } = useContext<any>(MultiStepFormContext);
 
-    const initialPlanFormDetails = {
-        plans: "",
-        isYearly: false
-    }
+    const onSubmit = (values: any) => {
+        setPlanInfo(values);
+        next();
 
-    const onSubmit = () => {
-        console.log("hello");
     }
 
     return (
@@ -20,7 +21,7 @@ function PlanForm() {
             <p className="form-subtitle text-cool-grey">You have the option of monthly or yearly billing.</p>
             <div className="pt-3">
                 <Formik
-                    initialValues={initialPlanFormDetails}
+                    initialValues={planInfo}
                     onSubmit={onSubmit}
                     enableReinitialize
                 >
@@ -30,7 +31,7 @@ function PlanForm() {
                                 <Form>
                                     <div className="row my-3">
                                         <div className="col-4">
-                                            <Field type="radio" className="d-none radio" name='plans' value="arcade" id="arcade" />
+                                            <Field type="radio" className="d-none radio" name='plan' value="arcade" id="arcade" />
                                             <label role="button" className='w-100' htmlFor="arcade">
                                                 <div className="card p-3">
                                                     <figure className="plan-icon-image">
@@ -45,7 +46,7 @@ function PlanForm() {
                                             </label>
                                         </div>
                                         <div className="col-4">
-                                            <Field type="radio" className="d-none radio" name='plans' value="advanced" id="advanced" />
+                                            <Field type="radio" className="d-none radio" name='plan' value="advanced" id="advanced" />
                                             <label role="button" className='w-100' htmlFor="advanced">
                                                 <div className="card p-3">
                                                     <figure className="plan-icon-image">
@@ -60,7 +61,7 @@ function PlanForm() {
                                             </label>
                                         </div>
                                         <div className="col-4">
-                                            <Field type="radio" className="d-none radio" name='plans' value="pro" id="pro" />
+                                            <Field type="radio" className="d-none radio" name='plan' value="pro" id="pro" />
                                             <label role="button" className='w-100' htmlFor="pro">
                                                 <div className="card p-3">
                                                     <figure className="plan-icon-image">
@@ -84,7 +85,7 @@ function PlanForm() {
                                     </div>
 
                                     <div className="d-flex align-items-center justify-content-between pt-5 mt-5">
-                                        <button type="button" className="btn bg-transparent">Go Back</button>
+                                        <button type="button" className="btn bg-transparent" onClick={() => { prev() }}>Go Back</button>
                                         <button type="submit" className="btn btn-primary">Next Step</button>
                                     </div>
                                 </Form>
