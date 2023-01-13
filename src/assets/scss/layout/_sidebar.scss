@@ -1,9 +1,16 @@
 #sidebar {
     flex: 0 0 $sidebar-width;
 
+
     .sidebar-bg {
         background-image: url('../../images/bg-sidebar-desktop.svg');
         background-size: cover;
+        border-radius: 0.5rem;
+
+        @include media-breakpoint-down(md) {
+            background-image: url('../../images/bg-sidebar-mobile.svg');
+            border-radius: 0;
+        }
     }
 
     .step {
