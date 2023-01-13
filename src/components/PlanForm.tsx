@@ -1,14 +1,13 @@
 import { Formik, Form, Field } from "formik";
+import { useContext } from "react";
+
 import arcade from "../assets/images/icon-arcade.svg"
 import advanced from "../assets/images/icon-advanced.svg"
 import pro from "../assets/images/icon-pro.svg"
-import { useContext } from "react";
 import { MultiStepFormContext } from "../contexts/multiStepFormContext";
-import { initialPlanFormDetails } from "./initialValues";
 
 function PlanForm() {
     const { next, prev, planInfo, setPlanInfo } = useContext<any>(MultiStepFormContext);
-
 
     const onSubmit = (values: any) => {
         setPlanInfo(values);
@@ -32,7 +31,7 @@ function PlanForm() {
                                 <Form>
                                     <div className="row my-3">
                                         <div className="col-4">
-                                            <Field type="radio" className="d-none radio" name='plans' value="arcade" id="arcade" />
+                                            <Field type="radio" className="d-none radio" name='plan' value="arcade" id="arcade" />
                                             <label role="button" className='w-100' htmlFor="arcade">
                                                 <div className="card p-3">
                                                     <figure className="plan-icon-image">
@@ -47,7 +46,7 @@ function PlanForm() {
                                             </label>
                                         </div>
                                         <div className="col-4">
-                                            <Field type="radio" className="d-none radio" name='plans' value="advanced" id="advanced" />
+                                            <Field type="radio" className="d-none radio" name='plan' value="advanced" id="advanced" />
                                             <label role="button" className='w-100' htmlFor="advanced">
                                                 <div className="card p-3">
                                                     <figure className="plan-icon-image">
@@ -62,7 +61,7 @@ function PlanForm() {
                                             </label>
                                         </div>
                                         <div className="col-4">
-                                            <Field type="radio" className="d-none radio" name='plans' value="pro" id="pro" />
+                                            <Field type="radio" className="d-none radio" name='plan' value="pro" id="pro" />
                                             <label role="button" className='w-100' htmlFor="pro">
                                                 <div className="card p-3">
                                                     <figure className="plan-icon-image">

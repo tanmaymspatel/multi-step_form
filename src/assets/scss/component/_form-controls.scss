@@ -9,8 +9,18 @@ input {
     }
 }
 
+.input-row {
+    &:hover {
+        border-color: $secondary;
+    }
+}
+
 .addons-form {
     .form-check-input {
-        background-color: $secondary;
+        background-color: $light;
+
+        &:checked {
+            background-color: $secondary;
+        }
     }
 }

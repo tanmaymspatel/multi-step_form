@@ -1,10 +1,16 @@
+import { useContext } from "react";
+import { MultiStepFormContext } from "../contexts/multiStepFormContext";
+
 function Sidebar() {
+
+    const { step } = useContext<any>(MultiStepFormContext);
+
     return (
         <div className="sidebar-bg h-100 p-4 rounded-3">
             <div className="d-flex flex-column">
                 <div className="d-flex align-items-center justify-content-between my-2">
                     <div className="step">
-                        <span className="active step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold">1</span>
+                        <span className={`${step === 1 ? "active" : null} step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold`}>1</span>
                     </div>
                     <div className="flex-grow-1">
                         <small className="text-cool-grey">STEP 1</small>
@@ -13,7 +19,7 @@ function Sidebar() {
                 </div>
                 <div className="d-flex align-items-center justify-content-between my-2">
                     <div className="step">
-                        <span className="step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold">2</span>
+                        <span className={`${step === 2 ? "active" : null} step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold`}>2</span>
                     </div>
                     <div className="flex-grow-1">
                         <small className="text-cool-grey">STEP 2</small>
@@ -22,7 +28,7 @@ function Sidebar() {
                 </div>
                 <div className="d-flex align-items-center justify-content-between my-2">
                     <div className="step">
-                        <span className="step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold">
+                        <span className={`${step === 3 ? "active" : null} step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold`}>
                             3
                         </span>
                     </div>
@@ -33,7 +39,7 @@ function Sidebar() {
                 </div>
                 <div className="d-flex align-items-center justify-content-between my-2">
                     <div className="step">
-                        <span className="step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold">4</span>
+                        <span className={`${step === 4 || step === 5 ? "active" : null} step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold`}>4</span>
                     </div>
                     <div className="flex-grow-1">
                         <small className="text-cool-grey">STEP 4</small>

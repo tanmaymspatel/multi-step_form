@@ -6,8 +6,12 @@ export const MultiStepFormContext: any = createContext({
     personalInfo: {},
     planInfo: {},
     setPersonalInfo: () => { },
+    setSelectedAddons: () => { },
     setPlanInfo: () => { },
     setStep: () => { },
     next: () => { },
-    prev: () => { }
+    prev: () => { },
+    selectedPlanDetails: {},
+    selectedAddons: [],
+    selectedAddonDetails: []
 })

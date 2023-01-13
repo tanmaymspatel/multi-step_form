@@ -11,6 +11,10 @@ export const initialPersonalInfo: IPersonalInfo = {
 }
 
 export const initialPlanFormDetails = {
-    plans: "",
+    plan: "",
     isYearly: false
+}
+
+export const initialAddOnsValues = {
+    addons: []
 }
