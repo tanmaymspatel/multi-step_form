@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { MultiStepFormContext } from '../contexts/multiStepFormContext';
 import AddOns from './AddOns';
 import FinishingUp from './FinishingUp';
@@ -27,12 +28,7 @@ function MainFormContent() {
     }
 
     return (
-        <div className='h-100'>
-            {/* <PersonalInfoForm /> */}
-            {/* <PlanForm /> */}
-            {/* <AddOns /> */}
-            {/* <FinishingUp /> */}
-            {/* <ThankYou /> */}
+        <div className='h-100 container-bg'>
             {renderStep(step)}
         </div>
     )
