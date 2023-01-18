@@ -28,7 +28,7 @@ function FinishingUp() {
             <div className="position-relative">
                 <h2 className="form-title text-primary fw-bold"> Finishing up</h2>
                 <p className="form-subtitle text-cool-grey">Double check everything looks OK before confirming.</p>
-                <div className="mt-5">
+                <div className="mt-3 mt-md-4">
                     <div className="px-4 py-3 bg-magnolia">
                         <div className='d-flex align-items-center justify-content-between border-bottom border-light-grey pb-2'>
                             <div>

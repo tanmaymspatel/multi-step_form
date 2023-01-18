@@ -38,8 +38,8 @@ function PlanForm() {
                                             <div className="col-md-4 ">
                                                 <Field type="radio" className="d-none radio" name='plan' value="arcade" id="arcade" />
                                                 <label role="button" className='w-100' htmlFor="arcade">
-                                                    <div className="card my-1 my-md-0 p-3 flex-row flex-md-column">
-                                                        <figure className="plan-icon-image">
+                                                    <div className="card my-1 my-md-0 plan-card flex-row flex-md-column">
+                                                        <figure className="plan-icon-image mb-0">
                                                             <img className="img-fluid" src={arcade} alt="Arcade Plan" />
                                                         </figure>
                                                         <div className="mt-0 mt-md-5 ms-3 ms-md-0">
@@ -54,8 +54,8 @@ function PlanForm() {
                                             <div className="col-md-4">
                                                 <Field type="radio" className="d-none radio" name='plan' value="advanced" id="advanced" />
                                                 <label role="button" className='w-100' htmlFor="advanced">
-                                                    <div className="card my-1 my-md-0 p-3 flex-row flex-md-column">
-                                                        <figure className="plan-icon-image">
+                                                    <div className="card my-1 my-md-0 plan-card flex-row flex-md-column">
+                                                        <figure className="plan-icon-image mb-0">
                                                             <img className="img-fluid" src={advanced} alt="Advanced Plan" />
                                                         </figure>
                                                         <div className="mt-0 mt-md-5 ms-3 ms-md-0">
@@ -69,8 +69,8 @@ function PlanForm() {
                                             <div className="col-md-4">
                                                 <Field type="radio" className="d-none radio" name='plan' value="pro" id="pro" />
                                                 <label role="button" className='w-100' htmlFor="pro">
-                                                    <div className="card my-1 my-md-0 p-3 flex-row flex-md-column">
-                                                        <figure className="plan-icon-image">
+                                                    <div className="card my-1 my-md-0 plan-card flex-row flex-md-column">
+                                                        <figure className="plan-icon-image mb-0">
                                                             <img className="img-fluid" src={pro} alt="Pro Plan" />
                                                         </figure>
                                                         <div className="mt-0 mt-md-5 ms-3 ms-md-0">
@@ -85,8 +85,8 @@ function PlanForm() {
                                                 {errorMsg => <small className="subsciption-plan-err text-danger fw-bold text-nowrap position-absolute">{errorMsg}</small>}
                                             </ErrorMessage>
                                         </div>
-                                        <div className="my-4">
-                                            <div className="form-switch d-flex justify-content-center align-items-center bg-magnolia py-3">
+                                        <div className="my-1 my-md-4">
+                                            <div className="form-switch d-flex justify-content-center align-items-center bg-magnolia py-1 py-md-3">
                                                 <span className={`${values.isYearly ? "text-cool-grey" : "text-primary"} fw-bold`}>Monthly</span>
                                                 <Field className="form-check-input mx-3" type="checkbox" role="switch" name="isYearly" />
                                                 <span className={`${values.isYearly ? "text-primary" : "text-cool-grey"} fw-bold`}>Yearly</span>
