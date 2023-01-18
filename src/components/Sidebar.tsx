@@ -7,7 +7,7 @@ function Sidebar() {
 
     return (
         <div className="sidebar-bg h-100 p-4">
-            <div className="d-flex flex-md-column justify-content-center my-3">
+            <div className="d-flex flex-md-column justify-content-center">
                 <div className="d-flex align-items-center justify-content-between my-2 px-3 px-md-0">
                     <div className="step">
                         <span className={`${step === 1 ? "active" : null} step-circle d-flex align-items-center justify-content-center border rounded-circle fw-bold`}>1</span>

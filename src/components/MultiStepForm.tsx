@@ -7,7 +7,7 @@ function multiStepForm() {
             <aside id="sidebar">
                 <Sidebar />
             </aside>
-            <div className="form-container flex-grow-1 overflow-hidden">
+            <div className="flex-grow-1 overflow-hidden">
                 <MainFormContent />
             </div>
         </div>

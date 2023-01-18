@@ -7,55 +7,135 @@
         height: 100%;
     }
 
+    .container-bg {
+
+        @include media-breakpoint-down(md) {
+            display: flex;
+            justify-content: center;
+            background-color: $magnolia;
+        }
+
+        @include media-breakpoint-up(md) {
+            background-color: $light;
+        }
+    }
+
     .form-container {
         padding: 3rem 6rem 2rem;
+
+        @include media-breakpoint-down(lg) {
+
+            padding: 3rem 3rem 2rem;
+        }
+
+        @include media-breakpoint-down(md) {
+            padding: 2rem;
+            position: absolute;
+            background-color: $light;
+            margin: -5rem 1rem 0 1rem;
+            border-radius: 8px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding: 1rem;
+        }
     }
 
     .form-title {
 
         font-size: 2rem;
 
-    }
-
-    .form-subtitle {
-        font-size: 1rem;
+        @include media-breakpoint-down(md) {
+            font-size: 1.25rem;
+        }
     }
 
     .form-btn {
-        padding-top: 6rem;
-    }
-}
+        position: absolute;
+        width: 100%;
 
-//plan subscription form
-.plan-icon-image {
-    height: 30px;
-    width: 30px;
-}
+        &.personal-form-btn {
+            bottom: -40%;
+        }
 
-.radio:checked {
-    &~label {
-        .card {
-            border-color: $primary;
-            background-color: $magnolia;
+        &.plan-form-btn {
+            bottom: -50%;
+        }
+
+        &.addon-btn {
+            bottom: -24%;
+        }
+
+        &.finish-form-btn {
+            bottom: -74%;
+        }
+
+        @include media-breakpoint-down(md) {
+            position: fixed;
+            right: 20px;
+
+            &.personal-form-btn {
+                bottom: 3%;
+            }
+
+            &.plan-form-btn {
+                bottom: 3%;
+            }
+
+            &.addon-btn {
+                bottom: 3%;
+            }
+
+            &.finish-form-btn {
+                bottom: 3%;
+            }
         }
     }
-}
 
-
-// subscription plan
-.change-plan {
-    color: $cool-grey;
-
-    &:hover {
-        color: $secondary;
+    //plan subscription form
+    .plan-icon-image {
+        height: 40px;
+        width: 40px;
     }
-}
 
-// addons checkbox
-.check-row {
-    border: 1px solid $light-grey;
+    .subsciption-plan-err {
+        bottom: -10%;
+        right: 0;
+    }
 
-    &:hover {
-        border-color: $secondary;
+    .radio:checked {
+        &~label {
+            .card {
+                border-color: $primary;
+                background-color: $magnolia;
+            }
+        }
+    }
+
+    // subscription plan
+    .change-plan {
+        color: $cool-grey;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+
+    // addons checkbox
+    .check-row {
+        border: 1px solid $light-grey;
+
+        &:hover {
+            border-color: $secondary;
+        }
+    }
+
+    // thank you screen
+    .thank-you-screen-container {
+        height: auto;
+
+        @include media-breakpoint-up(md) {
+            height: 100%;
+        }
     }
 }

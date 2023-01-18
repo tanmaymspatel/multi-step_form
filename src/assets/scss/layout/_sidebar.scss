@@ -1,6 +1,10 @@
 #sidebar {
     flex: 0 0 $sidebar-width;
 
+    @include media-breakpoint-down(md) {
+        flex: 0 0 172px;
+
+    }
 
     .sidebar-bg {
         background-image: url('../../images/bg-sidebar-desktop.svg');
