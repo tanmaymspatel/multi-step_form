@@ -1,8 +1,7 @@
 import { createContext } from "react";
-import { IMultiStep } from "./multistep";
-
-export const MultiStepFormContext: any = createContext({
-    step: null,
+// context for multistep form
+export const MultiStepFormContext = createContext({
+    step: 1,
     personalInfo: {},
     planInfo: {},
     setPersonalInfo: () => { },
@@ -14,4 +13,4 @@ export const MultiStepFormContext: any = createContext({
     selectedPlanDetails: {},
     selectedAddons: [],
     selectedAddonDetails: []
-})
+});

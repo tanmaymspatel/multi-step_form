@@ -9,12 +9,12 @@ import { MultiStepFormContext } from "../contexts/multiStepFormContext";
 
 function PlanForm() {
     const { next, prev, planInfo, setPlanInfo } = useContext<any>(MultiStepFormContext);
-
+    // set the form value and goto next step
     const onSubmit = (values: any) => {
         setPlanInfo(values);
         next();
     }
-
+    // validation criteria for plan subscription form
     const planFormValidationSchema = Yup.object().shape({
         plan: Yup.string().required("This Field is required!")
     })

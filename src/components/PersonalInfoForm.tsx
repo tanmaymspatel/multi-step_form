@@ -3,19 +3,21 @@ import { useContext } from "react";
 import * as Yup from 'yup';
 
 import { MultiStepFormContext } from "../contexts/multiStepFormContext";
-
+// phone regex
 const PHONE_NUMBER_REGEX = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
-
+/**
+ * @returns form for personal information 
+ */
 function PersonalInfo() {
 
     const { next, personalInfo, setPersonalInfo } = useContext<any>(MultiStepFormContext);
-
+    // valiadtion conditions
     const PersonalInfoValidationSchema = Yup.object().shape({
         name: Yup.string().required("This field is required"),
         emailId: Yup.string().email('Enter correct format').required("This field is required"),
         phoneNumber: Yup.string().required("This field is required").matches(PHONE_NUMBER_REGEX, "Enter Valid Format")
     });
-
+    //setting personal info values and goto next step
     const onSubmit = (values: any) => {
         setPersonalInfo(values);
         next();

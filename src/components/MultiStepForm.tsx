@@ -1,6 +1,8 @@
 import MainFormContent from "./MainFormContent"
 import Sidebar from "./Sidebar"
-
+/**
+ * @returns multi step form 
+ */
 function multiStepForm() {
     return (
         <div className="multi-stepfom-container d-flex flex-column flex-md-row p-md-3 rounded-4 bg-light">

@@ -4,11 +4,12 @@ import { subsciptionPlanData, addonsFormData } from "../components/data";
 import { initialAddOnsValues, initialPersonalInfo, initialPlanFormDetails } from "../components/initialValues";
 import { MultiStepFormContext } from "./multiStepFormContext"
 
-
 interface Props {
     children: React.ReactNode
 }
-
+/**
+ * @returns properties that the multiform context provides 
+ */
 function MultiFormContextProvider({ children }: Props) {
 
     const [step, setStep] = useState(1);
@@ -19,15 +20,22 @@ function MultiFormContextProvider({ children }: Props) {
     const [selectedAddonDetails, setSelectedAddonDetails] = useState([]);
     const { plan } = planInfo;
     const { addons } = selectedAddons;
-
+    /**
+     * @name next
+     * @description to go on next step
+     */
     const next = () => {
         setStep(prev => prev + 1)
     }
+    /**
+     * @name prev
+     * @description to go on previous step
+     */
     const prev = () => {
         setStep(prev => prev - 1)
     }
-
-    const ctx = {
+    // values to be provide by the context
+    const ctx: any = {
         step,
         setStep,
         next,
@@ -41,12 +49,12 @@ function MultiFormContextProvider({ children }: Props) {
         selectedAddons,
         selectedAddonDetails
     }
-
+    // to set the value of plan details
     useEffect(() => {
-        const data = (subsciptionPlanData.filter(data => data.id === plan))
+        const data = (subsciptionPlanData.filter(data => data.id === plan));
         setSelectedPlanDetails(data[0]);
-    }, [plan, planInfo, selectedPlanDetails]);
-
+    }, [plan, selectedPlanDetails]);
+    // to set the details of additional services
     useEffect(() => {
         const result: any = addonsFormData.filter(ad =>
             addons.some(fd => fd === ad.id));
@@ -58,6 +66,6 @@ function MultiFormContextProvider({ children }: Props) {
             {children}
         </MultiStepFormContext.Provider>
     )
-}
+};
 
-export default MultiFormContextProvider
+export default MultiFormContextProvider;

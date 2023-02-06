@@ -6,10 +6,17 @@ import FinishingUp from './FinishingUp';
 import PersonalInfoForm from './PersonalInfoForm'
 import PlanForm from './PlanForm';
 import ThankYou from './ThankYou';
+/**
+ * @returns Main Form entry component
+ */
 function MainFormContent() {
 
     const { step } = useContext<any>(MultiStepFormContext)
-
+    /**
+     * @name renderStep
+     * @param step number od current step
+     * @returns form according to the current step
+     */
     const renderStep = (step: number) => {
         switch (step) {
             case 1:

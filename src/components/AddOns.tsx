@@ -1,14 +1,18 @@
 import { Formik, Form, Field } from "formik";
 import { useContext, useState } from "react";
 import { MultiStepFormContext } from "../contexts/multiStepFormContext";
-
+/**
+ * @returns Component for the additional services
+ */
 function AddOns() {
     const { next, prev, selectedAddons, setSelectedAddons, planInfo } = useContext<any>(MultiStepFormContext);
     const { isYearly } = planInfo;
     const [isonlineServicesChecked, setIsOnlineServicesChecked] = useState(false);
     const [isonlargerStorageChecked, setIsLargerStorageChecked] = useState(false);
     const [isCustomProfileChecked, setIsCustomProfileChecked] = useState(false);
-
+    /**
+     * @description to check and set which additional service is selected
+     */
     const onCheckClick = (checkString: string) => {
         switch (checkString) {
             case "onlineService":
@@ -24,8 +28,11 @@ function AddOns() {
                 return;
         }
     }
-
-
+    /**
+     * @name onSubmit
+     * @description set the checked values and goto the next step
+     * @param values form values
+     */
     const onSubmit = (values: any) => {
         setSelectedAddons(values);
         next();
@@ -42,7 +49,7 @@ function AddOns() {
                         onSubmit={onSubmit}
                         enableReinitialize
                     >
-                        {({ dirty, values }: any) => {
+                        {({ dirty }: any) => {
                             return (
                                 <Form className="addons-form">
                                     <div className={`${dirty && isonlineServicesChecked ? "border-secondary" : null} check-row transition my-3 cursor-pointer rounded-3 p-3 p-md-4`}>
@@ -95,7 +102,6 @@ function AddOns() {
                             )
                         }}
                     </Formik>
-
                 </div>
             </div>
         </div>

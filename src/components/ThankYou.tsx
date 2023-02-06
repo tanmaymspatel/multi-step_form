@@ -1,5 +1,7 @@
 import thankYouimage from "../assets/images/icon-thank-you.svg"
-
+/**
+ * @returns Thank You screen
+ */
 function ThankYou() {
     return (
         <div className="form-container thank-you-screen-container">

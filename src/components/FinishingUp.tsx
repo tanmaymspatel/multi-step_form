@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
 
 import { MultiStepFormContext } from "../contexts/multiStepFormContext"
-
-
-
+/**
+ * @returns finishing screen
+ */
 function FinishingUp() {
 
     const { next, prev, selectedPlanDetails, planInfo, setStep, selectedAddonDetails } = useContext<any>(MultiStepFormContext);
@@ -17,11 +17,11 @@ function FinishingUp() {
         const charges: any = (selectedAddonDetails.map((ad: any) => ad.charges))
         let addonCharges = 0;
         charges?.forEach((charges: any) => {
-            if (isYearly) addonCharges += charges.yearly
-            else addonCharges += charges.monthly
+            if (isYearly) addonCharges += charges.yearly;
+            else addonCharges += charges.monthly;
         })
         setaddonCharges(addonCharges);
-    }, [isYearly, selectedAddonDetails])
+    }, [isYearly, selectedAddonDetails]);
 
     return (
         <div className="form-container">
@@ -66,6 +66,6 @@ function FinishingUp() {
             </div>
         </div>
     )
-}
+};
 
-export default FinishingUp
+export default FinishingUp;

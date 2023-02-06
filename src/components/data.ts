@@ -1,3 +1,4 @@
+// add on services data
 export const addonsFormData = [
     {
         id: "onlineService",
@@ -30,7 +31,7 @@ export const addonsFormData = [
         }
     },
 ];
-
+// subscription plan deatils
 export const subsciptionPlanData = [
     {
         id: "arcade",

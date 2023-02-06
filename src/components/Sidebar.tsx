@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { MultiStepFormContext } from "../contexts/multiStepFormContext";
-
+/**
+ * @returns Sidebar for the multi stepform  
+ */
 function Sidebar() {
 
     const { step } = useContext<any>(MultiStepFormContext);
